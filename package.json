@@ -1,0 +1,22 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "Generates a README.md from cmd line user inputs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benfok/readme-generator.git"
+  },
+  "author": "Ben Fok - Tidy Lines LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benfok/readme-generator/issues"
+  },
+  "homepage": "https://github.com/benfok/readme-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
