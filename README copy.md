@@ -5,7 +5,7 @@
 This application returns the locations of the 25 closest penguins to a location defined by the user, or all penguins within a 10 mile radius. If there are no penguins present, a narwhal is returned.
 
 <details>
-<summary>### Table of Contents</summary>
+<summary><strong>Table of Contents</strong></summary>
 
 - [Installation](#installation)
 - [Usage](#usage)
