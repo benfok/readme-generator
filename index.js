@@ -1,6 +1,8 @@
+// bringing in required dependency modules
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+// question data called by the inquirer module
 const questions = [
         {
             type: 'confirm',
@@ -56,6 +58,7 @@ const questions = [
         }
     ];
 
+// using the inquirer module to prompt the questions then return the answers and run the create README function
 inquirer.prompt(questions)
 .then((answers) => {
     console.log(answers);
@@ -65,8 +68,10 @@ inquirer.prompt(questions)
     console.log(error);
 });
 
+// create the readMe file
 const createReadme = ({overwrite, title, description, install, usage, license, contributing, testing, githubUser, email}) => {
 
+    // object containing the license options and their badges as markdown syntax
     const licenses = {
         'MIT' : '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)',
         'ISC' : '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)', 
@@ -79,8 +84,10 @@ const createReadme = ({overwrite, title, description, install, usage, license, c
         'No License/Define Later' : ''
     };
 
+    // variable to store the license info to insert straight into the markdown
     const licenseBadge = (licenses[`${license}`]);
 
+// markdown text and variable calls
     const readMeCode = 
 `# ${title}
 ${licenseBadge}
@@ -139,7 +146,7 @@ Additional information to consider including in your final README file:
     let incrementer = 0;
         
 // function that actually creates the file and writes the markdown code to the file
-    const writeToFile = () => fs.writeFile(`./created_files/${fileName}`, readMeCode, (error) => {
+    const writeToFile = () => fs.writeFile(`${fileName}`, readMeCode, (error) => {
         if (error) {
             console.log(error);
         }
@@ -148,7 +155,7 @@ Additional information to consider including in your final README file:
 
 // this function checks to see if a file already exists. If it does, the incrementor increases by one and appended to the file name. The function repeats itself until the next available README[n] filename is found, then runs the writeToFile function
     const fileNameCheck = () => {
-        if (fs.existsSync(`./created_files/${fileName}`)) {
+        if (fs.existsSync(`${fileName}`)) {
             incrementer++;
             fileName = `README${incrementer}.md`;
             console.log(fileName);
