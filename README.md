@@ -1,6 +1,11 @@
 # README Generator
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+**This README file was created using the README Generator**<br>
+Links to Tutorial Videos:
+- [Video 1 - Walkthrough](https://drive.google.com/file/d/1yC9OgxOrkG-U9_lFoE6VfGOUwO6fx3Wl/view?usp=sharing).
+- [Video 2 - Additional Functionality](https://drive.google.com/file/d/1Qc0rbmnpC303w5Xq7ocxmcYalrU2BWps/view?usp=sharing).
+
 ## Description
 Along with a portfolio website, your GitHub repository is an important part of your show reel as a developer. It is the place where you can highlight the projects you are most proud of, and the skills that you possess. Within each project, a well formatted and detailed README file is important to both help other users understand how to use or contribute to your code, and also plays a key role in showcasing your skills to prospective clients. <br> <br> While there is no ‘correct’ way to write a README file, this command line application takes user responses to prompts to quickly create quality, baseline README.md files and help ensure key information is not forgotten.
 
