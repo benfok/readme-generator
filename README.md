@@ -1,7 +1,7 @@
 # README Generator
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**This README file was created using the README Generator**<br>
+**This README file was created using the README Generator with the exception of these video links added afterwards**<br>
 Links to Tutorial Videos:
 - [Video 1 - Walkthrough](https://drive.google.com/file/d/1yC9OgxOrkG-U9_lFoE6VfGOUwO6fx3Wl/view?usp=sharing).
 - [Video 2 - Additional Functionality](https://drive.google.com/file/d/1Qc0rbmnpC303w5Xq7ocxmcYalrU2BWps/view?usp=sharing).
