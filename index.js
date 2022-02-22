@@ -3,23 +3,28 @@ const fs = require('fs');
 
 const questions = [
         {
+            type: 'confirm',
+            message: 'If a README file already exists do you wish to overwrite it?\n(Any response other than Y will create a new file)',
+            name: 'overwrite'
+        },    
+        {
             type: 'input',
             message: 'What is the title of your project?',
             name: 'title'
         },
         {
             type: 'input',
-            message: 'Describe your project in a few sentences:',
+            message: 'Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:\n- What was your motivation?\n- Why did you build this project?\n- What problem does it solve?\n- What did you learn?\n',
             name: 'description'
         },
         {
             type: 'input',
-            message: 'Provide instructions to install your application:',
+            message: 'What are the steps required to install your project?\nProvide a step-by-step description of how to get the development environment running:\n',
             name: 'install'
         },
         {
             type: 'input',
-            message: 'How can people use your work?',
+            message: 'Provide instructions that detail how people can use your work:\n',
             name: 'usage'
         },
         {
@@ -31,12 +36,12 @@ const questions = [
         },
         {
             type: 'input',
-            message: 'How can people contribute to your project?',
+            message: 'If you would like other developers to contribute to you project, include guidelines for how to do so:\n',
             name: 'contributing'
         },
         {
             type: 'input',
-            message: 'What information do you want to share regarding testing?',
+            message: 'If tests have been written for your application please provide instruction on how to run them here:\n',
             name: 'testing'
         },
         {
@@ -60,7 +65,7 @@ inquirer.prompt(questions)
     console.log(error);
 });
 
-const createReadme = ({title, description, install, usage, license, contributing, testing, githubUser, email}) => {
+const createReadme = ({overwrite, title, description, install, usage, license, contributing, testing, githubUser, email}) => {
 
     const licenses = {
         'MIT' : '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)',
@@ -83,13 +88,16 @@ ${licenseBadge}
 ## Description
 ${description}
 
-### Table of Contents
-[Installation](#installation)
-[Usage](#usage)
-[License](#license)
-[Contributing Guidelines](#contributing-guidelines)
-[Tests](#tests)
-[Questions](#questions)
+<details>
+<summary><strong>Table of Contents</strong></summary>
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing Guidelines](#contributing-guidelines)
+- [Tests](#tests)
+- [Questions](#questions)
+</details>
 
 ## Installation
 ${install}
@@ -98,9 +106,11 @@ ${install}
 ${usage}
 
 ## License
-${license}
+Distributed under the **${license}** license.
 
 ## Contributing Guidelines
+Contributions help our open source community to continue to evolve, and any contributions are greatly appreciated. If you have a suggestion that would improve this code please follow the directions below:
+
 ${contributing}
 
 ## Tests
@@ -112,10 +122,33 @@ You can find me [@${githubUser}](https://github.com/${githubUser})
 Or via email: ${email}(mailto:${email})
 `;
 
-    fs.writeFile('./created_files/README.md', readMeCode, (error) => {
+// check if the user requested to override the README file or to create a new one
+// set the default filename and incrementor
+    let fileName = 'README.md';
+    let incrementer = 0;
+        
+// function that actually creates the file and writes the markdown code to the file
+    const writeToFile = () => fs.writeFile(`./created_files/${fileName}`, readMeCode, (error) => {
         if (error) {
             console.log(error);
         }
-        console.log('README.md created!');
+        console.log(`${fileName} created!`);
     });
+
+// this function checks to see if a file already exists. If it does, the incrementor increases by one and appended to the file name. The function repeats itself until the next available README[n] filename is found, then runs the writeToFile function
+    const fileNameCheck = () => {
+        if (fs.existsSync(`./created_files/${fileName}`)) {
+            incrementer++;
+            fileName = `README${incrementer}.md`;
+            console.log(fileName);
+            fileNameCheck();
+        } else {
+            writeToFile();
+        }
+    };
+
+// either goes straight to write file or run through to find the next file name depending on the user choice to the first question
+    overwrite ? writeToFile() : fileNameCheck();
 };
+
+
