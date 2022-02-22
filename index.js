@@ -97,6 +97,7 @@ ${description}
 - [Contributing Guidelines](#contributing-guidelines)
 - [Tests](#tests)
 - [Questions](#questions)
+- [Additional Sections](#additional-sections)
 </details>
 
 ## Installation
