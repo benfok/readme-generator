@@ -129,9 +129,7 @@ ${testing}
 ## Questions
 Please reach out with any questions regarding the application.
 
-You can find me [@${githubUser}](https://github.com/${githubUser})
-
-Or via email: ${email}
+You can find me on GitHub [@${githubUser}](https://github.com/${githubUser})<br>Or via email: ${email}
 
 ## Additional Sections
 Additional information to consider including in your final README file:
