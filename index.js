@@ -109,9 +109,11 @@ ${usage}
 Distributed under the **${license}** license.
 
 ## Contributing Guidelines
-Contributions help our open source community to continue to evolve, and any contributions are greatly appreciated. If you have a suggestion that would improve this code please follow the directions below:
+Contributions help our open source community to continue to evolve, and any contributions are greatly appreciated. If you have a suggestion that would improve this code please follow the directions below. I require that any and all changes adhere to the Code of Conduct outlined in the [Contributor Covenant](https://www.contributor-covenant.org/).
 
-${contributing}
+ - ${contributing}
+
+> _**Note:** Any contributions are understood to be under the same ${license} that covers the project. If this is a concern please contact me._
 
 ## Tests
 ${testing}
@@ -120,6 +122,14 @@ ${testing}
 Please reach out with any questions regarding the application.
 You can find me [@${githubUser}](https://github.com/${githubUser})
 Or via email: ${email}(mailto:${email})
+
+## Additional Sections
+Additional information to consider including in your final README file:
+- List of languages and/or skills used to write the code.
+- Collaborators and acknowledgements.
+- A link to your deployed application or examples.
+- Additional badges. Checkout [shields.io](https://shields.io/) to learn more.
+
 `;
 
 // check if the user requested to override the README file or to create a new one
